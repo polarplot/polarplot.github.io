@@ -4,14 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sand Table File Preview</title>
+    <style>
+        h1,h4 { display: inline; } 
+        h4 { 
+            float:right;
+            font-weight: normal; 
+        } 
+    </style>
 </head>
 <body onload="loadFileAsText()">
     <h1>Sand Table File Preview</h1>
-    <tr>
-        <td>Select a File to Load (Files are not uploaded anywhere, all processing is done in the browser):</td>
-        <td><input type="file" id="fileToLoad" accept=".txt, .thr"></td>
-        <td><button onclick="loadFileAsText()">Load Selected File</button><td>
-    </tr>
+    <h4>Plots Theta and RHO values, commonly used by Kinetic Art Sand Tables like the one from Sisyphus, Checkout <a href="https://sandify.org/" target="_blank">Sandify</a> to create more</h4>
+    <br><br>
+        Select a File to Load (Files are not uploaded anywhere, all processing is done in the browser):<br><br>
+        <input type="file" id="fileToLoad" accept=".txt, .thr">
+        <button onclick="loadFileAsText()">Load Selected File</button>
     
             <div class="section">
                 <div id="can">
