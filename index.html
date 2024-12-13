@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sand Table File Preview</title>
+</head>
+<body onload="loadFileAsText()">
+    <h1>Sand Table File Preview</h1>
+    <tr>
+        <td>Select a File to Load (Files are not uploaded anywhere, all processing is done in the browser):</td>
+        <td><input type="file" id="fileToLoad" accept=".txt, .thr"></td>
+        <td><button onclick="loadFileAsText()">Load Selected File</button><td>
+    </tr>
+    
+            <div class="section">
+                <div id="can">
+                    <canvas id="patternPreviewCanvas" style="width: 80%; height: 60%;"></canvas>
+                </div>
+                <!--<p id="first_coordinate">First Coordinate: Not available</p>
+                <p id="last_coordinate">Last Coordinate: Not available</p>
+                <textarea id="content-target"></textarea>-->
+            </div>
+        </div>   
+
+    <script>
+    document.getElementById('fileToLoad').addEventListener('change', loadFileAsText)
+
+    const coordinates = [];
+
+    function loadFileAsText(){
+        var fileToLoad = document.getElementById("fileToLoad").files[0];
+        var fileReader = new FileReader();
+        var data;
+        var lines;
+
+        fileReader.onload = function(fileLoadedEvent){
+            var textFromFileLoaded = fileLoadedEvent.target.result;
+            //document.getElementById("content-target").value = textFromFileLoaded;
+            data = textFromFileLoaded;
+            lines = data.split("\n");
+            //console.log(lines);
+            
+            let i = 0;
+            while (i < lines.length) {
+                const lines2 = lines[i].split(" ");
+                if(!isNaN(lines2[0]) && !isNaN(lines2[1]) ){
+
+                    //console.log("theta: " + lines2[0]);
+                    //console.log("r: " + lines2[1]);
+                    //console.log(" ");
+                    const coords = [lines2[0],lines2[1]];
+                    coordinates.push(coords);
+                }
+                i++;
+                
+            }
+            //previewPattern(coordinates);
+
+            renderPattern(coordinates);
+            
+        };
+
+        fileReader.readAsText(fileToLoad, "UTF-8");
+    }
+
+        /*function previewPattern(coordinates2) {
+            
+                const coordinates = coordinates2;
+        
+                // Update coordinates display
+                if (coordinates.length > 0) {
+                    const firstCoord = coordinates[0];
+                    const lastCoord = coordinates[coordinates.length - 1];
+                    document.getElementById('first_coordinate').textContent = `First Coordinate: θ=${firstCoord[0]}, ρ=${firstCoord[1]}`;
+                    document.getElementById('last_coordinate').textContent = `Last Coordinate: θ=${lastCoord[0]}, ρ=${lastCoord[1]}`;
+                } else {
+                    document.getElementById('first_coordinate').textContent = 'First Coordinate: Not available';
+                    document.getElementById('last_coordinate').textContent = 'Last Coordinate: Not available';
+                }
+        
+                renderPattern(coordinates);
+        }*/
+
+        const canvas = document.getElementById('patternPreviewCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function renderPattern(coordinates) {
+            // Make canvas full screen
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        
+            // Clear the canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Convert polar to Cartesian and draw the pattern
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const maxRho = Math.max(...coordinates.map(coord => coord[1]));
+            const scale = Math.min(canvas.width, canvas.height) / (2 * maxRho); // Scale to fit within the screen
+             
+            ctx.beginPath(); 
+            coordinates.forEach(([theta, rho], index) => {
+                const x = centerX + rho * Math.cos(theta) * scale;
+                const y = centerY - rho * Math.sin(theta) * scale; // Invert y-axis for canvas
+                if (index === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            });
+            ctx.closePath();
+            ctx.stroke();
+            ctx.beginPath(); 
+        }
+
+    </script>
+</body>
+</html>
