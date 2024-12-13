@@ -5,32 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sand Table File Preview - Polar Plot</title>
     <style>
-        h1,h4 { display: inline; } 
-        h4 { 
-            float:right;
-            font-weight: normal; 
-        } 
-        p {
-            
-        }
+        h2 { margin-top: 0px; } 
     </style>
 </head>
 <body onload="loadFileAsText()">
-    <h1>Sand Table File Preview - Polar Plot</h1>
-    <h4>Plots Theta and RHO values, commonly used by Kinetic Art Sand Tables like the one from Sisyphus, Checkout <a href="https://sandify.org/" target="_blank">Sandify</a> to create more.</h4>
+    <h2>Sand Table File Preview - Polar Plot</h2>
         <p>Select a File to Load (Files are not uploaded anywhere, all processing is done in the browser):</p>
         <input type="file" id="fileToLoad" accept=".txt, .thr">
         <button onclick="loadFileAsText()">Load Selected File</button>
     
             <div class="section">
                 <div id="can">
-                    <canvas id="patternPreviewCanvas" style="width: 80%; height: 60%;"></canvas>
+                    <canvas id="patternPreviewCanvas" style="width: 80%; height: 40%;"></canvas>
                 </div>
                 <!--<p id="first_coordinate">First Coordinate: Not available</p>
                 <p id="last_coordinate">Last Coordinate: Not available</p>
                 <textarea id="content-target"></textarea>-->
             </div>
-        </div>   
+        <p>Plots Theta and RHO values, commonly used by Kinetic Art Sand Tables like the <a href="https://sisyphus-industries.com/" target="_blank">one from Sisyphus</a>, Checkout <a href="https://sandify.org/" target="_blank">Sandify</a> to create more.</p>
+        <p><a href="https://en.wikipedia.org/wiki/Polar_coordinate_system" target="_blank">More info about the Polar Coordinate system</a></p>   
 
     <script>
     document.getElementById('fileToLoad').addEventListener('change', loadFileAsText)
