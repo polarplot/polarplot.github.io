@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
     <title>Sand Table File Preview - Polar Plot</title>
     <style>
         h2 { margin-top: 0px; } 
     </style>
 </head>
 <body onload="loadFileAsText()">
-    <a class="github-fork-ribbon" href="https://github.com/polarplot/polarplot.github.io" target="_blank" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
-    <h2>Sand Table File Preview - Polar Plot</h2>
+     <h2>Sand Table File Preview - Polar Plot</h2>
         <p>Select a File to Load (Files are not uploaded anywhere, all processing is done in the browser):</p>
         <input type="file" id="fileToLoad" accept=".txt, .thr">
         <button onclick="loadFileAsText(); location.reload();">Load Selected File</button>
@@ -26,6 +24,7 @@
             </div>
         <p>Plots Theta and RHO values, commonly used by Kinetic Art Sand Tables like the <a href="https://sisyphus-industries.com/" target="_blank">one from Sisyphus</a>, Checkout <a href="https://sandify.org/" target="_blank">Sandify</a> to create more.</p>
         <p><a href="https://en.wikipedia.org/wiki/Polar_coordinate_system" target="_blank">More info about the Polar Coordinate system</a></p>   
+        <p><a href="https://github.com/polarplot/polarplot.github.io" target="_blank">Fork me on Github</a></p>
 
     <script>
     //document.getElementById('fileToLoad').addEventListener('change', loadFileAsText)
