@@ -12,7 +12,7 @@
     <h2>Sand Table File Preview - Polar Plot</h2>
         <p>Select a File to Load (Files are not uploaded anywhere, all processing is done in the browser):</p>
         <input type="file" id="fileToLoad" accept=".txt, .thr">
-        <button onclick="loadFileAsText()">Load Selected File</button>
+        <button onclick="loadFileAsText(); location.reload();">Load Selected File</button>
     
             <div class="section">
                 <div id="can">
@@ -26,7 +26,7 @@
         <p><a href="https://en.wikipedia.org/wiki/Polar_coordinate_system" target="_blank">More info about the Polar Coordinate system</a></p>   
 
     <script>
-    document.getElementById('fileToLoad').addEventListener('change', loadFileAsText)
+    //document.getElementById('fileToLoad').addEventListener('change', loadFileAsText)
 
     const coordinates = [];
 
