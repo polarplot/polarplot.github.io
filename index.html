@@ -22,8 +22,7 @@
                 <p id="last_coordinate">Last Coordinate: Not available</p>
                 <textarea id="content-target"></textarea>-->
             </div>
-        <p>Plots Theta and RHO values, commonly used by Kinetic Art Sand Tables like the <a href="https://sisyphus-industries.com/" target="_blank">one from Sisyphus</a>, Checkout <a href="https://sandify.org/" target="_blank">Sandify</a> to create more.</p>
-        <p><a href="https://en.wikipedia.org/wiki/Polar_coordinate_system" target="_blank">More info about the Polar Coordinate system</a></p>   
+        <p>Plots <a href="https://en.wikipedia.org/wiki/Polar_coordinate_system" target="_blank">Theta and RHO values</a>, commonly used by Kinetic Art Sand Tables like the <a href="https://sisyphus-industries.com/" target="_blank">one from Sisyphus</a>, Checkout <a href="https://sandify.org/" target="_blank">Sandify</a> to create more.</p>  
         <p><a href="https://github.com/polarplot/polarplot.github.io" target="_blank">Fork me on Github</a></p>
 
     <script>
@@ -90,7 +89,7 @@
 
         function renderPattern(coordinates) {
             // Make canvas full screen
-           canvas.width = window.innerWidth;
+           canvas.width = window.innerWidth * 0.99;
             canvas.height = window.innerHeight * 0.7;
         
             // Clear the canvas
