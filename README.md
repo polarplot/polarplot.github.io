@@ -6,7 +6,7 @@ This is a standalone one that simply runs in the browser, entirely client side.
 
 https://polarplot.github.io/
 
-The .thr file format can be seen on the Dune Weaver GitHub page but basically it's the [Polar coordinate system](https://en.wikipedia.org/wiki/Polar_coordinate_system).
+The .thr [file format can be seen on the Dune Weaver GitHub page](https://github.com/tuanchris/dune-weaver/tree/main?tab=readme-ov-file#pattern-file-format) but basically it's the [Polar coordinate system](https://en.wikipedia.org/wiki/Polar_coordinate_system).
 
 .txt files in the same format are also supported.
 
